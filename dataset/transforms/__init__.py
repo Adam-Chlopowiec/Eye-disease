@@ -40,7 +40,8 @@ class Imgaugment:
         self.augment = augment
 
     def __call__(self, img: Image) -> Image:
-        return self.augment(images=list(img))
+        img = [img]
+        return self.augment(images=img)[0]
 
 
 def train_transforms(
