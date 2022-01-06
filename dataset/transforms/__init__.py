@@ -1,8 +1,7 @@
-from typing import Tuple, Dict
-from torchvision.transforms import transforms, InterpolationMode
+from typing import Tuple
+from torchvision.transforms import transforms
 
 from PIL import Image
-import torch
 import numpy as np
 import albumentations as A
 import imgaug as ia
@@ -20,7 +19,7 @@ class Albument:
     def __init__(self, augment) -> None:
         self.augment = augment
 
-    def __call__(self, img: Image) -> np.ndarray:
+    def __call__(self, img: np.ndarray) -> np.ndarray:
         return self.augment(image=img)['image']
 
 class Imgaugment:
